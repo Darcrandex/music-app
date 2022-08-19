@@ -1,10 +1,12 @@
-import { CapacitorConfig } from '@capacitor/cli';
+import { CapacitorConfig } from '@capacitor/cli'
 
 const config: CapacitorConfig = {
   appId: 'com.darcrand.mobile',
   appName: 'waves',
   webDir: 'dist',
-  bundledWebRuntime: false
-};
+  bundledWebRuntime: false,
 
-export default config;
+  server: { hostname: 'my-app.com' },
+}
+
+export default config

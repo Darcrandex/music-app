@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Toast } from 'antd-mobile'
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_APP_API_URI,
+  baseURL: import.meta.env.DEV ? '/api' : import.meta.env.VITE_APP_API_URI,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json;charset=utf-8',

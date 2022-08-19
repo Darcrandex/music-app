@@ -46,7 +46,19 @@ export default defineConfig(({ mode }) => {
       alias: { '@': path.resolve(__dirname, './src') },
     },
 
-    server: { port: parseInt(env.PORT) || 4000, host: true },
+    server: {
+      port: parseInt(env.PORT) || 4000,
+      host: true,
+      proxy: {
+        '/api': {
+          target: env.VITE_APP_API_PROXY,
+          changeOrigin: true,
+          rewrite(path) {
+            return path.replace(/\/api/, '')
+          },
+        },
+      },
+    },
 
     base: './',
 
